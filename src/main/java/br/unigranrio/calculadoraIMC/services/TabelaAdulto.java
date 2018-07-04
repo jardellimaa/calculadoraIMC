@@ -5,7 +5,7 @@ public class TabelaAdulto implements Tabela {
 	@Override
 	public String gerar() {
 		return "<br>"
-		+"<h2>Tabela Adulto(Entre 20 e 65 anos):</h2>"
+		+"<h2>Tabela Adulto (Entre 20 e 65 anos):</h2>"
 		+"<strong>Baixo peso muito grave</strong> = abaixo de 16 kg/m²"
 		+"<br>"
 		+"<strong>Baixo peso grave</strong> = entre 16 e 16,99 kg/m²"

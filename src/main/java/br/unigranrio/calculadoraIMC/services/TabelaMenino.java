@@ -6,7 +6,7 @@ public class TabelaMenino implements Tabela {
 	public String gerar() {
 		return "<br>"
 				+"<h2>Tabela Menino (Entre 2 e 20 anos):</h2>"
-				+ "Com a tabela de idade e sexo fornecida abaixo, veja em que percentil o valor encontrado de índice de"
+				+ "Com a tabela de idade e sexo fornecida abaixo, veja em que percentil o valor encontrado de índice de "
 				+ "massa corporal se encaixa."
 				+ "<br>"
 				+ "Os resultados devem ser interpretados da seguinte forma:"

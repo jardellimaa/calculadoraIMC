@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.unigranrio.calculadoraIMC.services.Calculadora;
 import br.unigranrio.calculadoraIMC.services.CalculadoraImc;
 import br.unigranrio.calculadoraIMC.services.Manual;
 import br.unigranrio.calculadoraIMC.services.Resultado;
+import br.unigranrio.calculadoraIMC.services.Tabela;
 import br.unigranrio.calculadoraIMC.services.TabelaAdulto;
 import br.unigranrio.calculadoraIMC.services.TabelaIdosa;
 import br.unigranrio.calculadoraIMC.services.TabelaIdoso;
@@ -20,6 +22,8 @@ import br.unigranrio.calculadoraIMC.services.TabelaMenino;
 public class CalculadoraResource {
 	
 	Resultado result;
+	Tabela tab;
+	Calculadora calc = new CalculadoraImc();
 	
 	@CrossOrigin
 	@GetMapping(produces={"text/html"})
@@ -30,35 +34,40 @@ public class CalculadoraResource {
 	@CrossOrigin
 	@GetMapping(value="/adulto", produces={"text/html"})
 	public String adulto(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
-		result = new Resultado(new TabelaAdulto(), new CalculadoraImc());
+		tab = new TabelaAdulto();
+		result = new Resultado(tab, calc);
 		return result.mostrar(peso, altura);
 	}
 	
 	@CrossOrigin
 	@GetMapping(value="/idoso", produces={"text/html"})
 	public String idoso(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
-		result = new Resultado(new TabelaIdoso(), new CalculadoraImc());
+		tab = new TabelaIdoso();
+		result = new Resultado(tab, calc);
 		return result.mostrar(peso, altura);
 	}
 	
 	@CrossOrigin
 	@GetMapping(value="/idosa", produces={"text/html"})
 	public String idosa(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
-		result = new Resultado(new TabelaIdosa(), new CalculadoraImc());
+		tab = new TabelaIdosa();
+		result = new Resultado(tab, calc);
 		return result.mostrar(peso, altura);
 	}
 	
 	@CrossOrigin
 	@GetMapping(value="/menina", produces={"text/html"})
 	public String menina(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
-		result = new Resultado(new TabelaMenina(), new CalculadoraImc());
+		tab = new TabelaMenina();
+		result = new Resultado(tab, calc);
 		return result.mostrar(peso, altura);
 	}
 	
 	@CrossOrigin
 	@GetMapping(value="/menino", produces={"text/html"})
 	public String menino(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
-		result = new Resultado(new TabelaMenino(), new CalculadoraImc());
+		tab = new TabelaMenino();
+		result = new Resultado(tab, calc);
 		return result.mostrar(peso, altura);
 	}
 }

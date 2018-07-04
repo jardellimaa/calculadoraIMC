@@ -11,7 +11,7 @@ public class TabelaMenino implements Tabela {
 				+ "<br>"
 				+ "Os resultados devem ser interpretados da seguinte forma:"
 				+ "<br><br>"
-				+ "<strong>Baixo peso</strong> = abaixo do percentil 10.\r\n"
+				+ "<strong>Baixo peso</strong> = abaixo do percentil 10\r\n"
 				+ "<br>"
 				+ "<strong>Peso normal</strong> = entre o percentil 15 e 85\r\n"
 				+ "<br>"

@@ -17,6 +17,7 @@ import br.unigranrio.calculadoraIMC.services.TabelaIdoso;
 import br.unigranrio.calculadoraIMC.services.TabelaMenina;
 import br.unigranrio.calculadoraIMC.services.TabelaMenino;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/calculadora")
 public class CalculadoraResource {
@@ -25,13 +26,11 @@ public class CalculadoraResource {
 	Tabela tab;
 	Calculadora calc = new CalculadoraImc();
 	
-	@CrossOrigin
 	@GetMapping(produces={"text/html"})
 	public String manual() {
 		return Manual.manual();
 	}
 	
-	@CrossOrigin
 	@GetMapping(value="/adulto", produces={"text/html"})
 	public String adulto(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
 		tab = new TabelaAdulto();
@@ -39,7 +38,6 @@ public class CalculadoraResource {
 		return result.mostrar(peso, altura);
 	}
 	
-	@CrossOrigin
 	@GetMapping(value="/idoso", produces={"text/html"})
 	public String idoso(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
 		tab = new TabelaIdoso();
@@ -47,7 +45,6 @@ public class CalculadoraResource {
 		return result.mostrar(peso, altura);
 	}
 	
-	@CrossOrigin
 	@GetMapping(value="/idosa", produces={"text/html"})
 	public String idosa(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
 		tab = new TabelaIdosa();
@@ -55,7 +52,6 @@ public class CalculadoraResource {
 		return result.mostrar(peso, altura);
 	}
 	
-	@CrossOrigin
 	@GetMapping(value="/menina", produces={"text/html"})
 	public String menina(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
 		tab = new TabelaMenina();
@@ -63,7 +59,6 @@ public class CalculadoraResource {
 		return result.mostrar(peso, altura);
 	}
 	
-	@CrossOrigin
 	@GetMapping(value="/menino", produces={"text/html"})
 	public String menino(@RequestParam("peso") float peso, @RequestParam("altura") float altura) {
 		tab = new TabelaMenino();
